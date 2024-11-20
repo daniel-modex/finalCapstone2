@@ -1,0 +1,15 @@
+<!-- Side Nav (Always Visible) -->
+<div class="sidenav">
+  <ul class="list-unstyled text-white">
+    <li><a routerLink="details" class="text-white">Request</a></li>
+    <li><a routerLink="aduser" class="text-white">All Users</a></li>
+    <li><a routerLink="adproffesional" class="text-white">All Professionals</a></li>
+    <!-- <li><a routerLink="adsummary" class="text-white">Summary</a></li> -->
+    <!-- <li><a routerLink="details" class="text-white">prof</a></li> -->
+    <li><a class="text-white" (click)="onlogOut()">LogOut</a></li>
+  </ul>
+</div>
+<!-- Main Content Area -->
+<div class="content">
+  <router-outlet></router-outlet>
+</div>

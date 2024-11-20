@@ -1,0 +1,55 @@
+
+<div class="glow-text">
+    <h2 class="display-5 text-center" style="font-family: 'Times New Roman', Times, serif;">Professional List</h2>
+    </div>
+    <div class="container  mt-4">
+    
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <table class="table table-bordered table-hover text-center table-striped custom-shadow">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Domain</th>
+                            <th>Email</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (item of ProfessionalList; track $index) 
+                        {
+                            <tr>
+                                <td>{{item.id}}</td>
+                                <td>{{item.name}}</td>
+                                <td>{{item.domain}}</td>
+                                <td>{{item.email}}</td>
+                                <td><button type="button" class="btn btn-warning btn-block" (click)="onDetails(item.id)">Details</button></td>            
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div  class="card mt-4" [ngStyle]="{ 'display': isShowed ? 'block' : 'none' }" >
+            <div class="card-body" >
+                <h5 class="card-title text-center">Professional Details</h5>
+                <p><strong>ID : {{ProfDetails.id}}</strong> </p>
+                <p><strong>Name : {{ProfDetails.name}}</strong></p>
+                <p><strong>Domain : {{ProfDetails.domain}}</strong></p>
+                <p><strong>Email : {{ProfDetails.email}}</strong></p>
+                <p><strong>Phone No : {{ProfDetails.phone}}</strong></p>
+                <p><strong>Address : {{ProfDetails.address}}</strong></p>
+                <p><strong>Ratings : {{ProfDetails.rating}}</strong></p>
+                <p><strong>DOB : {{ProfDetails.dob}}</strong></p>
+                <button class="btn btn-secondary" (click)="close()">Close</button>
+                <button type="button" class="btn btn-danger btn-block" (click)="onDelete(ProfDetails.id)">Delete</button>
+
+            </div>
+        </div>
+    </div>
+
+
+    
+    <!-- <router-outlet /> -->
+    

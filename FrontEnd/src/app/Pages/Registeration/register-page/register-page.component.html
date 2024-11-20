@@ -1,0 +1,43 @@
+
+	<div class="main">
+	<input type="checkbox" id="chk" aria-hidden="true">
+
+	<div class="signup">
+		<form>
+			<label for="chk" aria-hidden="true" style="color: #573b8a;">Login</label>
+			<input [(ngModel)]="loginObj.userName" type="text" name="username" placeholder="User Name" required="">
+			<input [(ngModel)]="loginObj.password" type="password" name="password" placeholder="Password" required="">
+
+			<!-- CAPTCHA box positioned to the center and slightly right -->
+			<re-captcha class="captcha-box" [siteKey]="'6LfUuYIqAAAAAEfchVbkCLw36Ca_PWlhKBnCnRMP'"
+				(resolved)="onCaptchaResolved($event!)" required>
+			</re-captcha>
+
+			<button (click)="onLogin()" [disabled]="!captchaResolved">Login</button>
+		</form>
+	</div>
+
+	<div class="login">
+		<form>
+			<label for="chk" aria-hidden="true" style="color: #573b8a; margin-bottom: 10px;">Sign up</label>
+			<div [ngStyle]="{ 'display': isVisible ? 'none' : 'block' }">
+				<input [(ngModel)]="registerObj.name" type="text" name="name" placeholder="Name" required>
+				<input [(ngModel)]="registerObj.userName" type="text" name="username" placeholder="User name" required>
+				<input [(ngModel)]="registerObj.email" (ngModelChange)="onEmailChange($event)" type="email" name="email"
+					placeholder="Email" required>
+				<input [(ngModel)]="registerObj.phone" type="text" name="phone" placeholder="Phone Number" required>
+				<input [(ngModel)]="registerObj.password" (blur)="validatePassword()" type="password" name="password"
+					placeholder="Password" required style="margin-bottom: 2%;">
+
+				<label for="ischeck" class="custom-text">
+					<input [(ngModel)]="ischeck" type="checkbox" name="ischeck" required>Are you a service provider
+				</label>
+				<button (click)="onOTPGenerate()" style="margin-top: 2%;">Sign up</button>
+			</div>
+			<div [ngStyle]="{ 'display': isVisible ? 'block' : 'none' }">
+				<input type="text" [(ngModel)]="userOTP" name="userOTP" placeholder="Enter OTP">
+				<button (click)="onOTPSubmit()">Submit OTP</button>
+			</div>
+		</form>
+	</div>
+</div>

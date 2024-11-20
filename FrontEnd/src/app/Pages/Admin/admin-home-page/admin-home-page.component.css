@@ -1,0 +1,53 @@
+/* General styles for body */
+body {
+  background-color: #343a40;  /* Same color as the top navbar */
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+/* Main Content (Dashboard) */
+.content {
+  margin-left: 0;
+  padding: 20px;
+  background-color: #f4f4f4;  /* A light background for the content */
+  min-height: 100vh;  /* Ensures the content stretches vertically */
+}
+
+/* Side Navigation Styles */
+.sidenav {
+  background-color: #343a40;  /* Same color as the top navbar */
+  padding: 10px 20px;
+  width: 200px; /* Adjust width */
+  height: 100vh; /* Full height */
+  position: fixed; /* Fixed on the left */
+  top: 0; /* Align with top */
+  left: 0; /* Stay on the left */
+  z-index: 1050; /* Above other content */
+  overflow-y: auto;
+}
+
+/* List styles for sidenav */
+.sidenav ul {
+  padding: 0;
+  margin: 0;
+}
+
+.sidenav a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.sidenav a:hover {
+  background-color: #495057;
+}
+
+/* Mobile and small screens */
+@media (max-width: 767px) {
+  .content {
+    margin-left: 0; /* Ensure content doesn't shift */
+  }
+}

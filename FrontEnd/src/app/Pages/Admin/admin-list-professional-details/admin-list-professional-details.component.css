@@ -1,0 +1,80 @@
+/* Main Content (Professional List and Details) */
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 5%; /* Space for the sidenav (adjust based on sidenav width) */
+    padding: 20px;
+  }
+  
+  .row {
+    flex: 1; /* Ensure the list takes remaining space */
+  }
+  
+  /* Table Styling */
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .table th, .table td {
+    padding: 15px;
+    border: 1px solid #ccc;
+    text-align: center;
+  }
+  
+  .table-striped tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+  }
+  
+  .table-bordered {
+    border: 1px solid #ddd;
+  }
+  
+  .card {
+    flex-basis: 310px; /* Set a fixed width for the details card */
+    margin-left: 10px; /* Space between the list and the card */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    background-color: #f9f9f9;
+    width: 100%;
+  }
+  
+  /* Card Details Styling */
+  .card-body {
+    padding: 20px;
+    font-size: 14px;
+  }
+  
+  
+  .card-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .btn-close {
+    display: block; /* Ensures buttons are displayed as block-level elements */
+    margin-bottom: 15px; /* Adds space below the "Close" button */
+  }
+  
+  .btn-delete {
+    display: block; /* Ensures "Delete" button starts on a new line */
+  }
+  /* Responsive Styling */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column; /* Stack the list and details card on top of each other */
+      align-items: center;
+    }
+  
+    .card {
+      margin-left: 0; /* Remove margin for small screens */
+      margin-top: 20px;
+    }
+  
+    .table {
+      font-size: 0.9rem;
+    }
+  }
+  

@@ -1,0 +1,241 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <!-- Logo and Brand Name -->
+
+    <a class="navbar-brand" href="#">
+      <h3 style="font-family: 'Times New Roman', Times, serif">QuickAccess</h3>
+    </a>
+
+    <!-- Toggler for Mobile -->
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar Links -->
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/user"
+            >Home</a
+          >
+        </li>
+
+        <!-- Services Dropdown in Navbar -->
+
+        <li ngbDropdown class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            id="navbarDropdown"
+            ngbDropdownToggle
+            aria-expanded="false"
+          >
+            Services
+          </a>
+
+          <ul
+            ngbDropdownMenu
+            class="dropdown-menu"
+            aria-labelledby="navbarDropdown"
+          >
+            <li><a class="dropdown-item" routerLink="/plumber">Plumber</a></li>
+
+            <li><a class="dropdown-item" routerLink="/tutor">Tutor</a></li>
+
+            <li>
+              <a class="dropdown-item" routerLink="/electrician">Electrician</a>
+            </li>
+          </ul>
+        </li>
+
+        <li ngbDropdown class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            routerLink="/profile"
+            id="navbarDropdownProfile"
+            ngbDropdownToggle
+            aria-expanded="false"
+          >
+            {{ ProfileName }}
+          </a>
+
+          <ul
+            ngbDropdownMenu
+            class="dropdown-menu"
+            aria-labelledby="navbarDropdownProfile"
+          >
+            <li>
+              <a class="dropdown-item" routerLink="/profile">Your Account</a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" routerLink="/status">Booking Status</a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" (click)="onLogOut()" href="#">Logout</a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- icon -->
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fas fa-user-circle"></i>
+          </a>
+        </li>
+
+        <!-- <li class="nav-item">
+
+      <a class="nav-link active" aria-current="page" routerLink="admin">Admin</a>
+
+     </li>
+
+     <li class="nav-item">
+
+      <a class="nav-link active" aria-current="page" routerLink="register">Register</a>
+
+     </li>
+
+     <li class="nav-item">
+
+      <a class="nav-link active" aria-current="page" routerLink="professionals">Professionals</a>
+
+     </li> -->
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container1" style="height: 100%">
+  <!-- Left Section -->
+
+  <div class="left-section">
+    <h2>Booking Details</h2>
+    <p></p>
+
+    @for (item of BookingDetails; track $index) { @if
+    (!item.cancelationConfirmed) {
+
+    <div class="profile-card" style="width: 85%; margin-left: 5%"  [ngStyle]="{'background-color':item.isCompleted ? '#ecfbe5':'#fbe5e5'}">
+      <img src="face.png" alt="Profile Picture" class="profile-pic" />
+
+      <p><strong>Service Provider Name:</strong> {{ item.professionalName }}</p>
+
+      <p><strong>Booked Srevice:</strong> {{ item.serviceProvided }}</p>
+
+      <p><strong>Date of creation:</strong> {{ item.createdAt | date }}</p>
+
+      <p><strong>Price:</strong> {{ item.price }} /hour</p>
+
+      <p><strong>Booking Status:</strong> {{ item.bookingStatus }}</p>
+
+      <br />
+
+      <button
+        type="submit"
+        class="btn btn-info btn-block custom3" [ngStyle]="{ display: item.isCompleted? 'block' : 'none' }"
+        (click)="Review(item.professionalName)" style="margin-left: 45%; margin-bottom: 5%;"
+      >
+        Review
+      </button>
+
+      <button
+        type="submit"
+        class="btn btn-danger btn-block custom4" 
+        (click)="Delete(item.id)"
+      >
+        Cancel
+      </button>
+    </div>
+
+    <br />
+
+    } }
+  </div>
+
+  <!-- Right Section -->
+
+  <div class="right-section">
+    <div
+      class="previous-booking-card"
+      [ngStyle]="{ display: isVisible ? 'block' : 'none' }"
+    >
+      <h3>Review Box</h3>
+
+      <h6>Professional Name :{{ reviewObj.professionalName }}</h6>
+
+      <p><strong>Review: </strong></p>
+
+      <p>
+        <label for="">Rating :</label
+        ><input
+          type="number"
+          class="sample"
+          min="1" max="5"
+          [(ngModel)]="reviewObj.userRating"
+        />
+      </p>
+
+      <p>
+        <label for="">Message:</label
+        ><input type="text" class="sample" [(ngModel)]="reviewmessage" />
+      </p>
+
+      <!-- <p><strong>Review:</strong> Excellent service, very professional!</p> -->
+
+      <!-- <p><strong>Rating:</strong> 5/5</p> -->
+
+      <button
+        type="submit"
+        class="btn btn-success btn-block custom2"
+        (click)="Submit()"
+      >
+        Submit
+      </button>
+    </div>
+    <h3 [ngStyle]="{ display: isVisible ? 'block' : 'none' }">Past Reviews</h3>
+    @for (item of pastReviews; track $index) {
+      <div
+      class="previous-booking-card"
+      [ngStyle]="{ display: isVisible ? 'block' : 'none' }"
+    >
+     
+
+      <h6>Professional Name :{{ item.professionalName }}</h6>
+      <h6>User Reviewed :{{ item.userName }}</h6>
+
+      <p><strong>Review: </strong></p>
+
+      <p>
+        <label for="">Rating:</label
+        >{{item.userRating}}
+      </p>
+
+      <p>
+        <label for="">Message:</label
+        >{{item.message}}
+      </p>
+
+      <!-- <p><strong>Review:</strong> Excellent service, very professional!</p> -->
+
+      <!-- <p><strong>Rating:</strong> 5/5</p> -->
+
+     
+    </div>
+    }
+   
+  </div>
+</div>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,275 @@
+body {
+    background: rgb(99, 39, 120)
+}
+
+/* Ensure radio buttons are inline */
+.col-md-12 input[type="radio"] {
+    display: inline-block;
+    margin-right: 10px; /* Space between the radio buttons */
+}
+
+/* Reduce the text size of radio button labels */
+.gender-label {
+    font-size: 14px; /* Adjust the font size as needed */
+    margin-right: 20px; /* Space between the label and the next radio button */
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #BA68C8
+}
+
+.profile-button {
+    background: rgb(99, 39, 120);
+    box-shadow: none;
+    border: none
+}
+
+.profile-button:hover {
+    background: #682773
+}
+
+.profile-button:focus {
+    background: #682773;
+    box-shadow: none
+}
+
+.profile-button:active {
+    background: #682773;
+    box-shadow: none
+}
+
+.back:hover {
+    color: #682773;
+    cursor: pointer
+}
+
+.labels {
+    font-size: 11px
+}
+
+.add-experience:hover {
+    background: #BA68C8;
+    color: #fff;
+    cursor: pointer;
+    border: solid 1px #BA68C8
+}
+
+
+/* Make the DOB input smaller */
+.dob-input {
+    font-size: 14px;   /* Adjust the text size */
+    height: 30px;      /* Adjust the input height */
+}
+
+
+/* Ensure the checkbox is on the same line as other form elements */
+.checkbox-container {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.checkbox-container input[type="checkbox"] {
+  margin-right: 5px; /* Space between checkbox and label */
+}
+
+/* Adjusting form elements to keep everything inline and neat */
+.signup form input,
+.login form input,
+.signup form button,
+.login form button {
+  width: 100%; /* Make inputs take the full width */
+  margin-bottom: 10px; /* Space between elements */
+}
+
+/* Ensure the button at the bottom also fits */
+.signup form button,
+.login form button {
+  width: 100%; /* Full width button */
+  padding: 10px;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.signup form button:hover,
+.login form button:hover {
+  background-color: #45a049;
+}
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .left-section {
+    flex: 3;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .right-section {
+    flex: 1;
+    background-color: #e9ecef;
+    padding: 20px;
+  }
+  
+  .profile-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #fff;
+    text-align: center;
+  }
+  
+  .profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+  }
+  
+  .previous-booking-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2, h3 {
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  p {
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  strong {
+    color: #000;
+  }
+  
+
+
+ /* for availabe or leave toggle switch */
+  .switch {
+    /* --_switch-bg-clr: #70a9c5; */
+    --_switch-bg-clr: #212121;
+    --_switch-padding: 4px; /* padding around button*/
+    --_slider-bg-clr: rgb(201, 40, 40); /* slider color unchecked */
+    --_slider-bg-clr-on: rgb(93, 221, 33); /* slider color checked */
+    --_slider-txt-clr: #ffffff;
+    --_label-padding: 0.5rem 0.5rem; /* padding around the labels -  this gives the switch it's global width and height */
+    --_switch-easing: cubic-bezier(
+      0.47,
+      1.64,
+      0.41,
+      0.8
+    ); /* easing on toggle switch */
+    color: white;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    border-radius: 9999px;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    position: relative;
+    isolation: isolate;
+  }
+  
+  .switch input[type="checkbox"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  .switch > span {
+    display: grid;
+    place-content: center;
+    transition: opacity 300ms ease-in-out 150ms;
+    padding: var(--_label-padding);
+  }
+  .switch::before,
+  .switch::after {
+    content: "";
+    position: absolute;
+    border-radius: inherit;
+    transition: inset 150ms ease-in-out;
+  }
+  /* switch slider */
+  .switch::before {
+    background-color: var(--_slider-bg-clr);
+    inset: var(--_switch-padding) 50% var(--_switch-padding)
+      var(--_switch-padding);
+    transition:
+      inset 500ms var(--_switch-easing),
+      background-color 500ms ease-in-out;
+    z-index: -1;
+    box-shadow:
+      inset 0 1px 1px rgba(0, 0, 0, 0.3),
+      0 1px rgba(255, 255, 255, 0.3);
+  }
+  /* switch bg color */
+  .switch::after {
+    background-color: var(--_switch-bg-clr);
+    inset: 0;
+    z-index: -2;
+  }
+  /* switch hover & focus */
+  .switch:focus-within::after {
+    inset: -0.25rem;
+  }
+  .switch:has(input:checked):hover > span:first-of-type,
+  .switch:has(input:not(:checked)):hover > span:last-of-type {
+    opacity: 1;
+    transition-delay: 0ms;
+    transition-duration: 100ms;
+  }
+  /* switch hover */
+  .switch:has(input:checked):hover::before {
+    inset: var(--_switch-padding) var(--_switch-padding) var(--_switch-padding)
+      45%;
+  }
+  .switch:has(input:not(:checked)):hover::before {
+    inset: var(--_switch-padding) 45% var(--_switch-padding)
+      var(--_switch-padding);
+  }
+  /* checked - move slider to right */
+  .switch:has(input:checked)::before {
+    background-color: var(--_slider-bg-clr-on);
+    inset: var(--_switch-padding) var(--_switch-padding) var(--_switch-padding)
+      50%;
+  }
+  /* checked - set opacity */
+  .switch > span:last-of-type,
+  .switch > input:checked + span:first-of-type {
+    opacity: 0.75;
+  }
+  .switch > input:checked ~ span:last-of-type {
+    opacity: 1;
+  }
+  
